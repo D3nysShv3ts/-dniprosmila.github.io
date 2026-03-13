@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про підприємство — Комбінат ДНІПРО</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f4f7fb;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .reveal-card{
+            opacity:0;
+            transform:translateY(60px);
+            transition:
+            transform 0.7s ease,
+            opacity 0.7s ease,
+            box-shadow 0.4s ease;
+        }
+
+            /* коли з'являється */
+            .reveal-card.active{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+            /* hover */
+            .reveal-card:hover{
+            transform:translateY(-8px) scale(1.02);
+            box-shadow:0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .photo-slot {
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #666;
+            background: #fafafa;
+        }
+
+        .photo-small {
+            height: 200px;
+        }
+
+        .feature-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stats h3 {
+            font-size: 28px;
+            color: #1c4ca3;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HERO -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <img src=assets/img/logo_kb_DNIPRO.png class="navbar-brand" width="40">
+    <a class="navbar-brand fw-bold" href="index.html">Комбінат ДНІПРО</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Головна</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">Про підприємство</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Послуги</a></li>
+        <li class="nav-item"><a class="nav-link" href="news.html">Новини</a></li>
+        <li class="nav-item"><a class="nav-link">Документи</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Галерея</a></li>
+        <li class="nav-item"><a class="nav-link" href="contacts.html">Контакти</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+    <!-- ПРО ПІДПРИЄМСТВО -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-7">
+
+                    <div class="feature-box">
+
+                        <h2>Надійний партнер у сфері логістики та зберігання</h2>
+
+                        <p>
+                            Державне підприємство «Комбінат «Дніпро» — це сучасний логістичний
+                            комплекс у центрі України, який забезпечує надійне зберігання
+                            продукції, обладнання, товарів та матеріалів.
+                        </p>
+
+                        <p>
+                            Підприємство входить до складу Державного агентства резерву України
+                            та виконує важливу економічну функцію для розвитку регіону.
+                        </p>
+
+                        <p>
+                            Завдяки вигідному розташуванню у місті Сміла Черкаської області,
+                            наявності складських приміщень, відкритих майданчиків та
+                            залізничної колії підприємство забезпечує повний комплекс
+                            логістичних послуг.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-5">
+
+                    <div class="feature-box">
+
+                        <h3>Ключові принципи</h3>
+
+                        <ul>
+                            <li>Надійність та стабільність</li>
+                            <li>Прозорість комунікації</li>
+                            <li>Сучасна інфраструктура</li>
+                            <li>Партнерський підхід</li>
+                            <li>Орієнтація на довгостроковий розвиток</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ІСТОРІЯ -->
+
+    <section class="section bg-light">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <h2>Історія підприємства</h2>
+
+                    <p>
+                        ДП «Комбінат «Дніпро» було засноване у 1936 році в м.Сміла.
+                    </p>
+
+                    <p>
+                        Один із важливих етапів розвитку підприємства
+                        відбувався у 1956–1977 роках, коли активно
+                        розбудовувалась інфраструктура комбінату.
+                    </p>
+
+                    <p>
+                        Було розширено складські потужності,
+                        створено сучасну логістичну базу
+                        та впорядковано територію підприємства.
+                    </p>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="photo-slot" style="width:400px; height: 250px;">
+                        <img src="assets/img/smila.jpg" width="397" height="245" style="border-radius: 11px;">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- СТАТИСТИКА -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-md-12">
+
+                    <div class="stats shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>58 000 м²</h3>
+                        <p>Площа складських приміщень</p>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="stats shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>1936</h3>
+                        <p>рік заснування</p>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="stats shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>23 га</h3>
+                        <p>площа території</p>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-3">
+
+                    <div class="stats shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>11</h3>
+                        <p>складів</p>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="stats shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <h3>66</h3>
+                        <p>працівників</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section bg-light">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <h2>Служба безпеки</h2>
+                    <ul>
+                        <li>Цілодобова кваліфікована охорона</li>
+                        <li>Відеонагляд по всьому периметру 24/7</li>
+                        <li>Власна пожежна частина</li>
+                        <li>2 пожежних авто типу АЦ-40(130)</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="photo-slot" style="width:400px; height: 250px;">
+                        <img src="assets/img/warehouse-security.jpg" width="397" height="245" style="border-radius: 11px;">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- НАПРЯМИ -->
+
+    <section class="section bg-light">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <div class="photo-slot photo-small" style="width:400px; height: 250px;">
+                        <img src="assets/img/basic_warehouse_services.png" width="397" height="245" style="border-radius: 11px;">
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <h2>Основні напрями діяльності</h2>
+
+                    <ul>
+                        <li>Складське зберігання товарно-матеріальних цінностей</li>
+                        <li>Зберігання на відкритих майданчиках</li>
+                        <li>Вантажно-розвантажувальні роботи</li>
+                        <li>Маневрові роботи локомотивом</li>
+                        <li>Комерційне зберігання вантажених вагонів</li>
+                        <li>Відстій вагонів</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ІНФРАСТРУКТУРА -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <div class="col-lg-6">
+
+                    <h2>Інфраструктура</h2>
+
+                    <ul>
+                        <li>складські площі до 1700 м²</li>
+                        <li>відкриті майданчики</li>
+                        <li>залізнична під’їзна колія</li>
+                        <li>козловий кран та навантажувачі</li>
+                        <li>службові та адміністративні приміщення</li>
+                        <li>цілодобова охорона</li>
+                    </ul>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="photo-slot photo-small" style="width:400px; height: 250px;">
+                        <img src="assets/img/kozlovoy_kran.png" style="border-radius: 11px;" width="400" height="245" >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ГАЛЕРЕЯ -->
+    <section class="py-5 bg-light">
+        <div class="container">
+
+            <h2 class="text-center mb-5">Компанії які нам довіряють</h2>
+
+            <div class="row justify-content-center g-4">
+
+            <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/astarta.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Астарта</h5>
+                          <p class="card-text">
+                            Астарта — публічна європейська агропромислова компанія України, що займається вирощуванням сільськогосподарських культур, переробкою продукції та виробництвом продовольчих товарів, активно розвиваючи сучасне агровиробництво і співпрацюючи з партнерами на міжнародних ринках.                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+             <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/agropartner.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Агропартнер</h5>
+                          <p class="card-text">
+                            ТОВ «Агропартнер» — українська дистриб’юторська компанія, що понад 16 років забезпечує аграрні підприємства ресурсами для рослинництва, постачаючи насіння, добрива, засоби захисту рослин та займаючись торгівлею зерновими культурами.                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/ukrprominvest.png"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">УКРПРОМІНВЕСТ-АГРО</h5>
+                          <p class="card-text">
+                            «УКРПРОМІНВЕСТ-АГРО» — вертикально інтегрована агропромислова компанія України, яка займається рослинництвом, виробництвом цукру та борошна, обробляючи значні земельні площі й забезпечуючи стабільне виробництво аграрної продукції.                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/agrolan.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Агролан 2013</h5>
+                          <p class="card-text">
+                            ТОВ «Агролан 2013» — українська компанія, що займається дистрибуцією насіння, мікродобрив та засобів захисту рослин, надаючи аграріям професійні консультації та комплексну підтримку для ефективного вирощування культур.                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/prod_rezerv.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">ПРОД-РЕЗЕРВ</h5>
+                          <p class="card-text">
+                           ТОВ «ПРОД-РЕЗЕРВ» — українська торговельна компанія, що займається оптовою дистрибуцією продуктів харчування, напоїв та бакалійної продукції, забезпечуючи бізнес-партнерів широким асортиментом продовольчих товарів для стабільного постачання.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/agrokhimresurs.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Агрохімресурс</h5>
+                          <p class="card-text">
+                              ТОВ «Агрохімресурс» — компанія, що спеціалізується на оптовій торгівлі агрохімічною продукцією, забезпечуючи аграрний сектор засобами захисту рослин, мінеральними добривами та ресурсами для впровадження сучасних технологій вирощування.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/mir_agro.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">МІР АГРО</h5>
+                          <p class="card-text">
+                              ТОВ «МІР АГРО» — постачальник агрохімії та ресурсів для аграрного сектору, що здійснює оптову торгівлю добривами, насінням та засобами захисту рослин, надаючи фермерам консультації для підвищення врожайності.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+              <div class="card mb-3 reveal-card" style="max-width: 800px; transition-delay: 0,50s;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="assets/img/logistac_company.jpg"
+                         class="w-100 h-100 rounded-start object-fit-cover"
+                         alt="Астарта">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Зернова Транспортна Компанія</h5>
+                          <p class="card-text">
+                          ТОВ «Зернова Транспортна Компанія» — підприємство, що спеціалізується на транспортній логістиці та експедируванні вантажів, забезпечуючи перевезення аграрної продукції, організацію доставки та супровід перевезень по Україні.
+                          </p>
+                          <p class="card-text">
+                            <small class="text-body-secondary">Працюємо з 20xx</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+        </div>
+    </section>
+
+
+
+<footer class="page-footer text-light pt-5 pb-4 bg-dark">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <img src=assets/img/logo_kb_DNIPRO.png class="navbar-brand" width="40">
+        <h5 class="fw-bold">Комбінат ДНІПРО</h5>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="fw-bold">Розділи</h6>
+        <ul class="list-unstyled mb-0">
+          <li><a class="link-light text-decoration-none" href="about.html">Про нас</a></li>
+          <li><a class="link-light text-decoration-none" href="services.html">Послуги</a></li>
+          <li><a class="link-light text-decoration-none" href="news.html">Новини</a></li>
+          <li><a class="link-light text-decoration-none" href="contacts.html">Контакти</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-5">
+        <h6 class="fw-bold">Контакти</h6>
+        <p class="text-light-emphasis mb-1">20708, Черкаська обл., м. Сміла</p>
+        <p class="text-light-emphasis mb-1">(+380)98-455-93-29</p>
+        <p class="text-light-emphasis mb-1">(+380)93-403-63-49</p>
+        <p class="text-light-emphasis mb-1">(+380)50-594-64-83</p>
+        <p class="text-light-emphasis mb-0">kombdnipro@ukr.net</p>
+      </div>
+    </div>
+    <hr class="border-secondary my-4">
+    <div class="small text-light-emphasis">© 2026 Комбінат ДНІПРО. Усі права захищено.</div>
+  </div>
+</footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
