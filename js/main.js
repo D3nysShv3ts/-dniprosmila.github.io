@@ -1,162 +1,140 @@
-document.addEventListener("DOMContentLoaded", function () {
-    initActiveNav();
-    initScrollHeader();
-    initSmoothScroll();
-    initContactForm();
-    initScrollTopButton();
+
+document.addEventListener('DOMContentLoaded', () => {
+  initProgressBar();
+  initBackToTop();
+  initNavbarEffect();
+  initReveal();
+  initHeroParticles();
+  initTiltCards();
+  initContactForm();
 });
 
-function initActiveNav() {
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-    const navLinks = document.querySelectorAll(".navbar .nav-link");
+function initProgressBar(){
+  const bar = document.createElement('div');
+  bar.className = 'page-progress';
+  document.body.appendChild(bar);
+  const update = () => {
+    const h = document.documentElement;
+    const total = h.scrollHeight - h.clientHeight;
+    const progress = total > 0 ? (h.scrollTop / total) * 100 : 0;
+    bar.style.width = progress + '%';
+  };
+  update();
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+}
 
-    navLinks.forEach(link => {
-        const href = link.getAttribute("href");
-        if (href === currentPage) {
-            link.classList.add("active");
-        } else {
-            link.classList.remove("active");
-        }
+function initBackToTop(){
+  const button = document.createElement('button');
+  button.className = 'top-button';
+  button.setAttribute('aria-label', 'Повернутися нагору');
+  button.innerHTML = '↑';
+  document.body.appendChild(button);
+  const toggle = () => {
+    if(window.scrollY > 320){ button.classList.add('show'); }
+    else { button.classList.remove('show'); }
+  };
+  toggle();
+  window.addEventListener('scroll', toggle, {passive:true});
+  button.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+}
+
+function initNavbarEffect(){
+  const navbar = document.querySelector('.navbar');
+  if(!navbar) return;
+  const onScroll = () => navbar.classList.toggle('navbar-scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+}
+
+function initReveal(){
+  document.querySelectorAll('.card, .feature-box, .stats, .section-title, .gallery-card, .service-card, .hero-panel').forEach(el => {
+    if(!el.classList.contains('reveal-card')) el.classList.add('reveal');
+  });
+  const items = document.querySelectorAll('.reveal, .reveal-card, .reveal-up');
+  if(!items.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
     });
+  }, {threshold:0.16});
+  items.forEach(item => observer.observe(item));
 }
 
-function initScrollHeader() {
-    const navbar = document.querySelector(".navbar");
-    if (!navbar) return;
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 30) {
-            navbar.classList.add("shadow");
-        } else {
-            navbar.classList.remove("shadow");
-        }
-    });
-}
-
-function initSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
-        link.addEventListener("click", function (e) {
-            const targetId = this.getAttribute("href");
-            const target = document.querySelector(targetId);
-
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        });
-    });
-}
-
-function initContactForm() {
-    const form = document.querySelector("form");
-    if (!form) return;
-
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const inputs = form.querySelectorAll("input, textarea");
-        let isValid = true;
-
-        inputs.forEach(input => {
-            input.classList.remove("is-invalid");
-
-            if (input.hasAttribute("required") && input.value.trim() === "") {
-                input.classList.add("is-invalid");
-                isValid = false;
-            }
-
-            if (input.type === "email" && input.value.trim() !== "") {
-                if (!isValidEmail(input.value.trim())) {
-                    input.classList.add("is-invalid");
-                    isValid = false;
-                }
-            }
-        });
-
-        if (!isValid) {
-            showAlert("Будь ласка, правильно заповніть форму.", "danger");
-            return;
-        }
-
-        showAlert("Повідомлення успішно надіслано.", "success");
-        form.reset();
-    });
-}
-
-function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function showAlert(message, type) {
-    const oldAlert = document.querySelector(".custom-alert");
-    if (oldAlert) {
-        oldAlert.remove();
+function initHeroParticles(){
+  document.querySelectorAll('.hero, .hero-mini').forEach((hero) => {
+    const layer = document.createElement('div');
+    layer.className = 'hero-particles';
+    const count = hero.classList.contains('hero') ? 18 : 10;
+    for(let i = 0; i < count; i++){
+      const dot = document.createElement('span');
+      dot.style.left = Math.random() * 100 + '%';
+      dot.style.bottom = (-10 - Math.random() * 20) + 'px';
+      const size = 4 + Math.random() * 7;
+      dot.style.width = size + 'px';
+      dot.style.height = size + 'px';
+      dot.style.animationDuration = (6 + Math.random() * 8) + 's';
+      dot.style.animationDelay = (Math.random() * 5) + 's';
+      layer.appendChild(dot);
     }
-
-    const alert = document.createElement("div");
-    alert.className = `alert alert-${type} custom-alert mt-3`;
-    alert.textContent = message;
-
-    const form = document.querySelector("form");
-    if (form) {
-        form.parentNode.insertBefore(alert, form);
-    } else {
-        document.body.prepend(alert);
-    }
-
-    setTimeout(() => {
-        alert.remove();
-    }, 4000);
+    hero.appendChild(layer);
+  });
 }
 
-function initScrollTopButton() {
-    const button = document.createElement("button");
-    button.innerHTML = "↑";
-    button.className = "btn btn-primary position-fixed";
-    button.style.bottom = "20px";
-    button.style.right = "20px";
-    button.style.display = "none";
-    button.style.zIndex = "9999";
-    button.style.borderRadius = "50%";
-    button.style.width = "50px";
-    button.style.height = "50px";
+function initTiltCards(){
+  const cards = document.querySelectorAll('.soft-card, .service-card, .hero-panel');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      if(window.innerWidth < 992) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateY = ((x / rect.width) - 0.5) * 5;
+      const rotateX = (0.5 - (y / rect.height)) * 5;
+      card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
 
-    document.body.appendChild(button);
+function initContactForm(){
+  const form = document.querySelector('#contactForm');
+  if(!form) return;
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-            button.style.display = "block";
-        } else {
-            button.style.display = "none";
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let valid = true;
+    const inputs = form.querySelectorAll('input, textarea');
+
+    inputs.forEach(input => {
+      input.classList.remove('is-invalid');
+      if(input.hasAttribute('required') && !input.value.trim()){
+        input.classList.add('is-invalid');
+        valid = false;
+      }
+      if(input.type === 'email' && input.value.trim()){
+        const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+        if(!ok){
+          input.classList.add('is-invalid');
+          valid = false;
         }
+      }
     });
 
-    button.addEventListener("click", function () {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+    const old = form.querySelector('.form-status');
+    if(old) old.remove();
+
+    const msg = document.createElement('div');
+    msg.className = 'form-status alert mt-3 ' + (valid ? 'alert-success' : 'alert-danger');
+    msg.textContent = valid ? 'Повідомлення успішно підготовлено. Тут можна підключити реальну відправку.' : 'Будь ласка, правильно заповніть усі обов’язкові поля.';
+    form.appendChild(msg);
+
+    if(valid) form.reset();
+  });
 }
-
-const cards = document.querySelectorAll(".reveal-card");
-
-const observer = new IntersectionObserver(entries => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-entry.target.classList.add("active");
-observer.unobserve(entry.target);
-}
-
-});
-
-}, {threshold:0.2});
-
-cards.forEach(card => observer.observe(card));
